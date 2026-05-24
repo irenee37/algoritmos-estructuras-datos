@@ -2,6 +2,10 @@
 
 ## Práctica 10: Análisis de Tráfico de Red y Detección de Anomalías
 
+![Java](https://img.shields.io/badge/Java-11-orange)
+![Maven](https://img.shields.io/badge/Maven-3.6-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 ### CONTEXTO
 
 El objetivo de esta práctica es integrar los conceptos de **Tablas de Símbolos (Hash o BST)**, **Algoritmos de Ordenación Eficientes** y **Análisis de Complejidad**.
@@ -80,9 +84,9 @@ Una vez procesado todo el fichero y poblada tu Tabla de Símbolos, debes extraer
 
 ---
 
-## APARTADO 3: Análisis y Conclusiones (README)
+## APARTADO 3: Análisis y Conclusiones
 
-Añade a tu archivo `README.md` una breve sección de conclusiones donde justifiques teóricamente tus decisiones de diseño basándote en el análisis de algoritmos:
+Añade a tu archivo `docs/ANALISIS.md` una breve sección de conclusiones donde justifiques teóricamente tus decisiones de diseño basándote en el análisis de algoritmos:
 
 1. **Elección de la Tabla de Símbolos:**
    * Indica si elegiste Hash o BST.
@@ -106,20 +110,26 @@ Añade a tu archivo `README.md` una breve sección de conclusiones donde justifi
 
 ```
 .
+├── pom.xml                           # Configuración de Maven
 ├── README.md                          # Este archivo
 ├── INSTRUCCIONES.md                   # Guía de compilación y ejecución
 ├── .gitignore                         # Configuración de Git
+├── run.sh / run.bat                   # Scripts para compilar y ejecutar
 ├── src/
-│   └── main/
+│   ├── main/
+│   │   └── java/
+│   │       ├── IpRecord.java          # ⭐ TODO: Implementar
+│   │       └── LogAnalyzer.java       # ⭐ TODO: Implementar
+│   └── test/
 │       └── java/
-│           ├── IpRecord.java          # ⭐ TO DO: Implementar
-│           └── LogAnalyzer.java       # ⭐ TO DO: Implementar
+│           ├── IpRecordTest.java     # Tests para IpRecord
+│           └── LogAnalyzerTest.java  # Tests para LogAnalyzer
 ├── data/
 │   └── sample_logs.txt               # Archivo de logs para pruebas
-└── test/
-    └── java/
-        ├── IpRecordTest.java         # Tests para IpRecord
-        └── LogAnalyzerTest.java      # Tests para LogAnalyzer
+├── lib/                              # Librerías (si no usas Maven)
+├── target/                           # Directorio de compilación (generado)
+└── docs/
+    └── ANALISIS.md                   # Apartado 3: Tus conclusiones
 ```
 
 ---
@@ -127,16 +137,33 @@ Añade a tu archivo `README.md` una breve sección de conclusiones donde justifi
 ## Cómo Empezar
 
 1. **Lee el enunciado completo** (arriba) para entender qué debes implementar.
-2. **Estudia los tests** en `test/` para ver qué comportamiento se espera.
+2. **Estudia los tests** en `src/test/java/` para ver qué comportamiento se espera.
 3. **Implementa `IpRecord.java`** con la clase básica.
 4. **Implementa `LogAnalyzer.java`** con toda la lógica de lectura, procesamiento y ordenación.
-5. **Ejecuta los tests** para verificar tu solución.
-6. **Escribe tus conclusiones** en el README.
+5. **Ejecuta los tests** para verificar tu solución:
+   ```bash
+   mvn test
+   ```
+6. **Ejecuta el programa**:
+   ```bash
+   mvn exec:java -Dexec.mainClass="LogAnalyzer" -Dexec.args="data/sample_logs.txt"
+   ```
+7. **Escribe tus conclusiones** en `docs/ANALISIS.md`.
 
 ---
 
 ## Entregas
 
 - ✅ Código funcional en `src/main/java/`
-- ✅ Tests pasando en `test/java/`
-- ✅ Sección de conclusiones al final del README
+- ✅ Tests pasando en `src/test/java/`
+- ✅ Sección de conclusiones en `docs/ANALISIS.md`
+- ✅ `pom.xml` configurado correctamente
+
+---
+
+## Recursos Útiles
+
+- [Maven Documentation](https://maven.apache.org/)
+- [JUnit 4 Testing](https://junit.org/junit4/)
+- [Java Comparable](https://docs.oracle.com/javase/tutorial/collections/interfaces/comparable.html)
+- [Java Comparator](https://docs.oracle.com/javase/tutorial/collections/interfaces/order.html)

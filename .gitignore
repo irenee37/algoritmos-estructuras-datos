@@ -29,3 +29,10 @@ pom.xml.next
 release.properties
 dependency-reduced-pom.xml
 .m2/
+
+# Gradle
+.gradle/
+*.iml
+
+# Local env
+.env
